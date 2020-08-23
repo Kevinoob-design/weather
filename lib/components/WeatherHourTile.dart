@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather/Controllers/Weather.dart';
+import 'package:weather/Shared/Assets.dart';
 
-import 'WeatherCurrentDetails.dart';
-import 'WeatherDailyTile.dart';
+import '../constants.dart';
 
 class WeatherHourTile extends StatelessWidget {
   const WeatherHourTile({
@@ -15,7 +14,7 @@ class WeatherHourTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<WeatherController>(
-      builder: (context, weather, _) => Column(
+      builder: (context, weather, _) => weather.didLoad ? Column(
         children: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
@@ -32,19 +31,8 @@ class WeatherHourTile extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            // height: MediaQuery.of(context).size.height * 0.50,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  WeatherDailyTile(),
-                  WeatherCurrentDetails(),
-                ],
-              ),
-            ),
-          )
         ],
-      ),
+      ) : Container()
     );
   }
 }
@@ -67,18 +55,18 @@ class HourTile extends StatelessWidget {
         children: [
           Text(
             '${i == 0 ? 'now' : DateFormat("h:mma").format(currentTime).toLowerCase()}',
-            style: TextStyle(color: Colors.white, fontSize: 17),
+            style: TextStyle(color: kPrimaryColor, fontSize: 17),
           ),
           Text(
             '$clouds %',
-            style: TextStyle(color: Colors.lightBlueAccent[100], fontSize: 16),
+            style: TextStyle(color: kSecundaryColor, fontSize: 16),
           ),
           Icon(
-            FontAwesomeIcons.cloud,
-            color: Colors.white,
+            getWeatherIcon(icon),
+            color: kPrimaryColor,
             size: 15,
           ),
-          Text('${temp.floor()}°', style: TextStyle(color: Colors.white, fontSize: 17))
+          Text('${temp.floor()}°', style: TextStyle(color: kPrimaryColor, fontSize: 17))
         ],
       ),
     );

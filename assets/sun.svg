@@ -1,0 +1,22 @@
+<svg width="414" height="736" viewBox="0 0 414 736" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="paint0_linear" x1="32.7611" y1="43.8348" x2="32.7611" y2="663.351" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4E9DC4"/>
+<stop offset="1" stop-color="#4E9DC4"/>
+</linearGradient>
+<clipPath id="clip0">
+<rect width="414" height="736" fill="white"/>
+</clipPath>
+</defs>
+<g clip-path="url(#clip0)">
+<rect width="414" height="736" fill="white"/>
+<rect width="414" height="736" fill="url(#paint0_linear)"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="-122" y="-110" width="355" height="347">
+<rect x="232.62" y="17.0399" width="323" height="173" transform="rotate(137.251 232.62 17.0399)" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<ellipse opacity="0.345222" cx="4.7405" cy="8.43619" rx="161.5" ry="161" transform="rotate(137.251 4.7405 8.43619)" fill="#CFEAF1"/>
+<ellipse cx="3.2996" cy="9.08721" rx="130" ry="129.5" transform="rotate(137.251 3.2996 9.08721)" fill="#CFEAF1"/>
+</g>
+</g>
+</svg>

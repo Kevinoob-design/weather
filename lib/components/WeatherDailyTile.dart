@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather/Controllers/Weather.dart';
+import 'package:weather/Shared/Assets.dart';
 import 'package:weather/models/dailyWeather.dart';
+
+import '../constants.dart';
 
 class WeatherDailyTile extends StatelessWidget {
   const WeatherDailyTile({
@@ -13,9 +15,9 @@ class WeatherDailyTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<WeatherController>(
-      builder: (context, weather, _) => Column(
+      builder: (context, weather, _) => weather.didLoad ? Column(
         children: returnDaytiles(weather.listDailyWeather),
-      ),
+      ) : Container()
     );
   }
 }
@@ -57,7 +59,7 @@ class DayTile extends StatelessWidget {
             width: 95,
             child: Text(
               '${DateFormat('EEEE').format(currentTime)}',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(color: kPrimaryColor, fontSize: 18),
             ),
           ),
           Row(
@@ -66,8 +68,8 @@ class DayTile extends StatelessWidget {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 child: Icon(
-                  FontAwesomeIcons.cloud,
-                  color: Colors.white,
+                  getWeatherIcon(icon),
+                  color: kPrimaryColor,
                   size: 15,
                 ),
               ),
@@ -75,7 +77,7 @@ class DayTile extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   '$clouds %',
-                  style: TextStyle(color: Colors.lightBlueAccent[100], fontSize: 16),
+                  style: TextStyle(color: kSecundaryColor, fontSize: 16),
                 ),
               ),
             ],
@@ -84,10 +86,10 @@ class DayTile extends StatelessWidget {
             children: [
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('${tempMax.floor()}°', style: TextStyle(color: Colors.white, fontSize: 17))),
+                  child: Text('${tempMax.floor()}°', style: TextStyle(color: kPrimaryColor, fontSize: 17))),
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('${tempMin.floor()}°', style: TextStyle(color: Colors.white54, fontSize: 17)))
+                  child: Text('${tempMin.floor()}°', style: TextStyle(color: kOtherColor, fontSize: 17)))
             ],
           )
         ],

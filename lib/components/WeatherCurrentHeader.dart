@@ -14,7 +14,6 @@ class WeatherCurrentHeader extends StatelessWidget {
     return Consumer<WeatherController>(
       builder: (context, weather, _) => weather.didLoad
           ? Container(
-              // color: Colors.blue,
               padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.10),
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.30,
@@ -22,15 +21,15 @@ class WeatherCurrentHeader extends StatelessWidget {
                 children: [
                   Text(
                     weather?.timeZone,
-                    style: TextStyle(fontSize: kTitleSize, color: Colors.white),
+                    style: TextStyle(fontSize: kTitleSize, color: kPrimaryColor),
                   ),
                   Text(
                     weather?.currentWeather?.weather[0]?.description,
-                    style: TextStyle(fontSize: kSubTitleSize, color: Colors.white),
+                    style: TextStyle(fontSize: kSubTitleSize, color: kPrimaryColor),
                   ),
                   Text(
                     '${weather?.currentWeather?.temp?.floor()?.toString()}°',
-                    style: TextStyle(fontSize: kCurrentTempSize, color: Colors.white, fontWeight: FontWeight.w300),
+                    style: TextStyle(fontSize: kCurrentTempSize, color: kPrimaryColor, fontWeight: FontWeight.w300),
                   ),
                 ],
               ),

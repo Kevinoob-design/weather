@@ -12,6 +12,7 @@ class WeatherController extends ChangeNotifier {
   List<DailyWeather> listDailyWeather = [];
   bool didLoad = false;
   String timeZone = '';
+  int precipitation;
 
   WeatherController() {
     getWether();
@@ -21,6 +22,7 @@ class WeatherController extends ChangeNotifier {
     Location.getCurrentPosition().then((position) {
       Http.getRequest(API(position.latitude, position.longitude).apis['getWeather'], {}).then((weatherData) {
         timeZone = weatherData['timezone'].toString().split('/')[1].replaceFirst('_', ' ');
+        precipitation = weatherData['minutely'][0]['precipitation'];
         currentWeather = CurrentWeather.fromJson(weatherData['current']);
 
         for (var weatherDataHourly in weatherData['hourly']) {
