@@ -1,0 +1,6 @@
+{
+    "@JsonKey(name: 'day') double": "day",
+    "@JsonKey(name: 'night') double": "night",
+    "@JsonKey(name: 'eve') double": "eve",
+    "@JsonKey(name: 'morn') double": "morn"
+}

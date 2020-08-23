@@ -1,0 +1,6 @@
+{
+    "@JsonKey(name: 'id') int": "id",
+    "@JsonKey(name: 'main') String": "main",
+    "@JsonKey(name: 'description') String": "description",
+    "@JsonKey(name: 'icon') String": "icon"
+}
