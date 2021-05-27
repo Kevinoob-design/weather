@@ -5,7 +5,7 @@ import 'package:weather/screens/Weather.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  await DotEnv().load('.env');
+  await load(fileName: '.env');
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider<WeatherController>(

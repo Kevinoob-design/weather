@@ -35,6 +35,6 @@ class WeatherController extends ChangeNotifier {
         didLoad = true;
         notifyListeners();
       });
-    });
+    }).catchError((onError) => {print(onError)});
   }
 }

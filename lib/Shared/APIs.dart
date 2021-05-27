@@ -5,7 +5,7 @@ class API {
 
   API(double lat, double lng) {
     apis = {
-      'getWeather': 'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lng&units=metric&appid=${DotEnv().env['OPEN_WEATHER_KEY']}',
+      'getWeather': 'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lng&units=metric&appid=${env['OPEN_WEATHER_KEY']}',
       'postWeather': ''
     };
   }
